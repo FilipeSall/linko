@@ -1,0 +1,77 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixin.scss';
+
+.navlink{
+    color: $forwdground;
+    background-image: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border-radius: 8px;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    @include mediaCell{
+        order: 4;
+    }
+}
+
+.solid:hover, .cta:hover{
+    transform: scale(1.05);
+    transition: .3s ease-in-out;
+}
+
+.medium{
+    width: 250px;
+    font-size: 1.5rem;
+    height: 7.5vh;
+    font-size: 1.5rem;
+    padding: 4px;
+    @include mediaLaptop{
+        font-size: 1.3rem;
+    }
+    @include mediaTablet{
+        font-size: 1.2rem;
+    }
+    @include mediaCell{
+        font-size: 1rem;
+        
+    }
+}
+
+.solid, .cta{
+    font-weight: bold;
+}
+
+.solid{
+    background-color: $classic;
+    border: none;
+    transition: .3s ease-in-out;
+    box-shadow: 0 0 5px $accent;
+}
+
+.solid:active{
+    border-bottom: none;
+    transition: .3s ease-in-out;
+}
+
+.navlink svg{
+    background-color: inherit;
+    background-image: none;
+    height: 4vh;
+    @include mediaCell{
+        width: 10%;
+        height: 4vh;
+        object-fit: cover;
+    }
+}
+
+.cta{
+    background-color: $active;
+    box-shadow: 0 0px 10px $active;
+    text-shadow: 0 0 1px $active-dark;
+    margin-top: 3rem;
+    @include mediaCell{
+        width: 100%;
+    }
+}
