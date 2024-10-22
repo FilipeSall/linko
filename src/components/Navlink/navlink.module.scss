@@ -70,8 +70,10 @@
     background-color: $active;
     box-shadow: 0 0px 10px $active;
     text-shadow: 0 0 1px $active-dark;
+    transition: .3s ease-in-out;
     margin-top: 3rem;
     @include mediaCell{
+
         width: 100%;
     }
 }
