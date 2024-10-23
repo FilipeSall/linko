@@ -2,7 +2,7 @@ import styles from './page.module.scss';
 
 function page() {
     return (
-        <div>
+        <div className={styles.modalWrapper}>
             Modal
         </div>
     )
