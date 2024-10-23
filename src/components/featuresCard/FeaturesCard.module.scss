@@ -11,6 +11,7 @@
     border-radius: 8px;
     display: flex;
     flex-direction: column;
+    will-change: opacity, transform;
     gap: 8px;
     @include mediaTablet{
         width: 45%;
