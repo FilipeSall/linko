@@ -1,3 +1,6 @@
+@import '../styles/variables.scss';
+@import '../styles/mixin.scss';
+
 * {
     color: $forwdground;
     margin: 0;
@@ -15,6 +18,7 @@ html{
         padding: 0 4px;
     }
 }
+
 
 ::-webkit-scrollbar {
     width: 7px;
