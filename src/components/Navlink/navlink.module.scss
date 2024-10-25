@@ -11,6 +11,7 @@
     border-radius: 8px;
     border: none;
     font-family: "Poppins", sans-serif;
+    text-decoration: none;
     @include mediaCell{
         order: 4;
     }
