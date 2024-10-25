@@ -1,12 +1,11 @@
 @import './variables.scss';
 @import './mixin.scss';
 
-
 *{
     color: $forwdground;
     margin: 0;
     padding: 0;
-    font-family: "Montserrat", sans-serif;
+    font-family:var(--font-montserrat);
     box-sizing: border-box;
 }
 

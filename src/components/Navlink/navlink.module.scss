@@ -10,7 +10,7 @@
     gap: 4px;
     border-radius: 8px;
     border: none;
-    font-family: "Poppins", sans-serif;
+    font-family: var(--font-poppins);
     text-decoration: none;
     @include mediaCell{
         order: 4;

@@ -53,7 +53,7 @@
     background-color: inherit;
     color: $background;
     font-size: 2rem;
-    font-family: 'Poppins';
+    font-family: var(--font-poppins);
     @include mediaTablet{
         font-size: 1.7rem;
     }
