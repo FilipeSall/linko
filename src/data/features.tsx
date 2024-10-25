@@ -1,9 +1,9 @@
-import cookimg from '@/assets/features/cook.webp';
-import devimg from '@/assets/features/programmer.webp';
-import marketerimg from '@/assets/features/marketer.webp';
-import jornalistimg from '@/assets/features/jornalist.webp';
-import designerimg from '@/assets/features/designer.webp';
-import musicimg from '@/assets/features/music.webp';
+import cookimg from '../../public/assets/features/cook.webp'
+import devimg from '../../public/assets/features/programmer.webp';
+import marketerimg from '../../public/assets/features/marketer.webp';
+import jornalistimg from '../../public/assets/features/jornalist.webp';
+import designerimg from '../../public/assets/features/designer.webp';
+import musicimg from '../../public/assets/features/music.webp';
 
 export const featuresJobs = [
     {

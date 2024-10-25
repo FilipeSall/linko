@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from './logo.module.scss';
-import logoimg from '@/assets/logo2.png';
+import logoimg from '../../../public/assets/logo2.png';
 
 function Logo() {
     return (
