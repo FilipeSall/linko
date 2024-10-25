@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 
-
-
 export const metadata: Metadata = {
   title: "Linko",
   description: "Deixando a internet pequena e organizada",
@@ -14,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-br" className="app-container">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
