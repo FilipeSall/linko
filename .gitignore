@@ -47,3 +47,4 @@ public/_next-video
 .vercel
 
 *storybook.log
+.env*.local

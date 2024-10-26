@@ -11,6 +11,7 @@ export default function Home() {
 
   return (
     <main>
+      
       <header className={styles.header}>
         <Logo />
         <div className={styles.btnWrapper}>
@@ -44,6 +45,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+
     </main>
   );
 }
