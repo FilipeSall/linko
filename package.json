@@ -6,15 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prisma": "prisma generate && prisma migrate deploy && next build",
     "lint": "next lint",
+    "db-push": "npx prisma db push",
     "test": "jest --passWithNoTests --maxWorkers=50%",
     "test:watch": "jest --watch --maxWorkers=25%",
     "test:ci": "jest --runInBand"
   },
   "dependencies": {
     "@prisma/client": "^5.21.1",
-    "@vercel/postgres": "^0.10.0",
     "axios": "^1.7.7",
     "framer-motion": "^11.11.9",
     "next": "14.2.15",

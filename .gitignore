@@ -48,3 +48,5 @@ public/_next-video
 
 *storybook.log
 .env*.local
+
+.early.coverage
