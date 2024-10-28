@@ -1,13 +1,15 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixin.scss';
 
 .wrapper{
     width: 20%;
-    height: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px;
     user-select: none;
+    @include mediaCell {
+        margin: 0 0 24px 0;
+    }
 }
 
 .logo{
