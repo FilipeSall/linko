@@ -9,6 +9,7 @@
 
 # testing
 /coverage
+.jest
 
 # next.js
 /.next/
@@ -45,8 +46,7 @@ videos/*
 public/_next-video
 
 .vercel
-
-*storybook.log
+.jest
 .env*.local
 
 .early.coverage
