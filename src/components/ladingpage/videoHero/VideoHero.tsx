@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef } from 'react';
 import styles from './VideoHero.module.scss';
-import poster from '../../../public/assets/poster.webp';
+import poster from '../../../../public/assets/poster.webp';
 
 function VideoHero() {
 

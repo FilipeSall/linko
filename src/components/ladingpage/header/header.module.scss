@@ -1,0 +1,36 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixin.scss';
+
+.header {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 32px;
+
+    @include mediaCell {
+        padding: 0 4px;
+        flex-direction: column;
+        height: fit-content;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem 0;
+        gap: 12px;
+    }
+}
+
+.btnWrapper {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    height: inherit;
+    justify-content: space-around;
+
+    @include mediaTablet {
+        width: 60%;
+    }
+
+    @include mediaCell {
+        width: 100%;
+    }
+}

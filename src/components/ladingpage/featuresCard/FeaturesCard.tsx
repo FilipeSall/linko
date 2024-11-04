@@ -16,11 +16,12 @@ function FeaturesCard({ description, img, title, index }: FeaturesCardsProps) {
             whileHover={{ rotate: index % 2 === 0 ? 1 : -1, transition: { duration: 0.2 } }}
             viewport={{ once: true }}
             layoutId={`card-${index}`}
-
             className={`${styles.cardWrapper} ${styles[randomClass]}`}>
-            <Image src={img} alt={title} className={styles.cardImg} height={300} width={500} priority />
+
+            <Image src={img} alt={title} className={styles.cardImg} height={190} width={500} priority />
             <h2 className={styles.cardTitle}>{title}</h2>
             <p className={styles.cardDescription}>{description}</p>
+
         </motion.div>
     );
 }
