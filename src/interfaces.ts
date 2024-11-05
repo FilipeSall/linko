@@ -16,3 +16,20 @@ export interface FeaturesCardsProps {
     index: number
 }
 
+export interface UserProps {
+    name:string,
+    email:string,
+    password:string,
+    niche: number,
+}
+
+export interface SignUpProps extends UserProps {
+    confirmPassword: string,
+}
+
+export interface SignUpErrorsProps {
+    name: null | string,
+    email: null | string,
+    confirmPassword: null | string,
+    password: null | string
+}
