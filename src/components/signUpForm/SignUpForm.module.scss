@@ -1,5 +1,5 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixin.scss';
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixin.scss' as *;
 
 .form {
     height: 90vh;
@@ -12,54 +12,6 @@
     padding: 24px;
     border-radius: 4px;
     align-items: center;
-}
-
-.inputWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    width: 75%;
-    justify-content: center;
-}
-
-.inputWrapper > label { 
-    color: $background;
-}
-
-.btn,
-.input,
-.select {
-    border-radius: 4px;
-    border: none;
-    height: 5vh;
-    background-color: #FFFFFF;
-}
-
-
-.input,
-.select {
-    width: 100%;
-    box-shadow: 0px 0px 1px $background;
-}
-
-.input {
-    color: $background;
-    background-color: #FFFFFF;
-    padding: 4px;
-}
-
-.select {
-    color: $background;
-    cursor: pointer;
-}
-
-.select>option {
-    color: $background;
-    font-size: 1.1rem;
-}
-
-.strongText {
-    font-weight: bold;
 }
 
 .btnWrapper {
