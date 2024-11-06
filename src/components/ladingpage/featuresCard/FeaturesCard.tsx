@@ -1,5 +1,5 @@
 "use client";
-import { FeaturesCardsProps } from '@/interfaces';
+import { FeaturesCardsProps } from '@/types/components';
 import styles from './FeaturesCard.module.scss';
 import Image from 'next/image';
 import { motion } from "framer-motion"

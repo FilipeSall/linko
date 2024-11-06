@@ -1,5 +1,5 @@
-import { NavLinkProps } from "@/interfaces"
-import Link from "next/link"
+import { NavLinkProps } from "@/types/components";
+import Link from "next/link";
 import styles from './navlink.module.scss';
 
 function Navlink({ href, type, children, size, icon }: NavLinkProps) {
