@@ -7,7 +7,6 @@ CREATE TABLE "Users" (
     "name" VARCHAR(100) NOT NULL,
     "email" VARCHAR(100) NOT NULL,
     "password" VARCHAR(100) NOT NULL,
-    "nicheId" INTEGER NOT NULL,
     "role" "Roles" NOT NULL DEFAULT 'standard',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -26,6 +25,3 @@ CREATE TABLE "Niches" (
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Users_email_key" ON "Users"("email");
-
--- AddForeignKey
-ALTER TABLE "Users" ADD CONSTRAINT "Users_nicheId_fkey" FOREIGN KEY ("nicheId") REFERENCES "Niches"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

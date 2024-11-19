@@ -1,14 +1,16 @@
-import { InputProps } from '@/types/components';
+"use client";
 import styles from './Input.module.scss';
+import { InputProps } from '@/types/components';
 
 function Input({
     label,
     name,
     type = 'text',
-    placeholder = '',
+    placeholder,
     required = false,
     ...rest
 }: InputProps) {
+
     return (
         <div className={styles.inputWrapper}>
             <label htmlFor={name}>{label}</label>
@@ -18,8 +20,10 @@ function Input({
                 className={styles.input}
                 placeholder={placeholder}
                 required={required}
+                id={name}
                 {...rest}
             />
+
         </div>
     )
 }
