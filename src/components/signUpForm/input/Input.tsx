@@ -7,7 +7,7 @@ function Input({
     name,
     type = 'text',
     placeholder,
-    required = false,
+    required = true,
     ...rest
 }: InputProps) {
 

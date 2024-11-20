@@ -6,7 +6,8 @@
 
 generator client {
   provider   = "prisma-client-js"
-  engineType = "dataproxy" // Necessário para compatibilidade com Edge
+  engineType = "dataproxy"
+  // Necessário para compatibilidade com Edge
 }
 
 datasource db {
@@ -23,13 +24,51 @@ model User {
   image         String?
   role          Roles     @default(standard)
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  Session   Session[]
+  Account   Account[]
 
+  @@map("user")
+}
 
 enum Roles {
   adm
   standard
 }
 
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("session")
+}
+
+model Account {
+  id           String    @id
+  accountId    String
+  providerId   String
+  userId       String
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken  String?
+  refreshToken String?
+  idToken      String?
+  expiresAt    DateTime?
+  password     String?
+
+  @@map("account")
+}
+
+model Verification {
+  id         String    @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime?
+
+  @@map("verification")
+}
