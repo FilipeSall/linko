@@ -6,11 +6,11 @@ import Link from 'next/link';
 import { createUserAction } from '@/actions/auth';
 import { StateError, StateSuccess } from '@/types/auth';
 
-
 function SignUpForm() {
 
     const [state, action, pending] = useActionState(createUserAction, {});
 
+    //Função que verifica se o retorno da action foi um erro
     function isErrorState(state: StateError | StateSuccess): state is { [key: string]: string } {
         return typeof state === 'object' && !('success' in state);
     }

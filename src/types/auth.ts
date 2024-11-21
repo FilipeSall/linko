@@ -4,4 +4,4 @@ export interface ObjectKeysStringErrors {
 
 export type StateError = { [key: string]: string };
 
-export type StateSuccess = { success: boolean };
+export type StateSuccess = { success: boolean } | void;

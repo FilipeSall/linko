@@ -1,8 +1,10 @@
 'user server';
 import { StateError, StateSuccess } from "@/types/auth";
+import bcryptjs from 'bcryptjs';
+import { redirect } from "next/navigation";
 
 //Criar novo usuario com Credenciais
-export async function createUserAction(state: StateError | StateSuccess, formData: FormData): Promise<StateError | StateSuccess> {
+export async function createUserAction(state: unknown, formData: FormData): Promise<StateError | StateSuccess> {
     //pegando valores de campos
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
@@ -28,7 +30,7 @@ export async function createUserAction(state: StateError | StateSuccess, formDat
     }
 
     // Chama a API para verificar se o usuário já existe (passando o e-mail)
-    const response = await fetch('/api/auth/finduser', {
+    const response = await fetch('/api/user/finduser', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -43,10 +45,33 @@ export async function createUserAction(state: StateError | StateSuccess, formDat
         errors.generic = 'Email já cadastrado.';
     }
 
-    // Verifica se existem erros antes de continuar
+    // Verifica se existem erros 
     if (Object.keys(errors).length > 0) {
         return errors;
-    } else {
-        return { success: true };
     }
+
+    // Gerando hash da senha
+    const hashedPassword = await bcryptjs.hash(password, 10);
+    // Envia os dados para a API que cria o usuário
+    const createUserResponse = await fetch('/api/user/createuser', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            name,
+            email,
+            password: hashedPassword,
+        }),
+    });
+
+    // Verifica a resposta da API
+    if (!createUserResponse.ok) {
+        const createUserError = await createUserResponse.json();
+        errors.generic = createUserError.error || 'Erro ao criar o usuário.';
+        return errors;
+    }
+
+    // Redireciona o usuário para a página de dashboard após a criação bem-sucedida
+    redirect('/dashboard');
 }
