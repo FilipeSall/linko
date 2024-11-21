@@ -1,6 +1,6 @@
 "use client";
 import styles from './Input.module.scss';
-import { InputProps } from '@/types/components';
+import { InputSignUpProps } from '@/types/components';
 
 function Input({
     label,
@@ -8,8 +8,12 @@ function Input({
     type = 'text',
     placeholder,
     required = true,
+    inputError,
     ...rest
-}: InputProps) {
+}: InputSignUpProps) {
+
+     // Extraindo mensagem de erro específica para o campo atual
+    const errorMessage = inputError?.[name];
 
     return (
         <div className={styles.inputWrapper}>
@@ -23,7 +27,7 @@ function Input({
                 id={name}
                 {...rest}
             />
-
+        {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
         </div>
     )
 }

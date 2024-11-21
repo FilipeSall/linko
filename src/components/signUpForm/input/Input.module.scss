@@ -22,3 +22,9 @@
     color: $background;
     padding: 8px;
 }
+
+.errorMessage{
+    color: $accent;
+    animation: $errorTextAnimation;
+}
+

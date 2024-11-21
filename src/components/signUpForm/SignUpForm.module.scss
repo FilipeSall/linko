@@ -45,3 +45,9 @@
     color: $background;
     text-decoration: none;
 }
+
+.errorMessage{
+    color:$accent;
+    animation: $errorTextAnimation;
+}
+

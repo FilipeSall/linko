@@ -1,5 +1,6 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import { InputHTMLAttributes, ReactNode } from "react";
+import { ObjectKeysStringErrors } from "./auth";
 
 export interface NavLinkProps {
     href: string
@@ -20,4 +21,8 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     name: string
     label: string
     type: 'text' | 'password' | 'email' | 'number' | 'tel' | 'search' | 'url'
+}
+
+export interface InputSignUpProps extends InputProps {
+    inputError?: ObjectKeysStringErrors 
 }

@@ -10,3 +10,19 @@ $active-dark:#102E24;
 $hover:#ED8A93;
 $classic: #b3445acb;
 $soft:#E2BBC8;
+
+//animation
+$errorTextAnimation:shake 0.3s ease-in-out;
+
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20%, 60% {
+        transform: translateX(-10px);
+    }
+    40%, 80% {
+        transform: translateX(10px);
+    }
+}
