@@ -8,7 +8,7 @@ import { loginUser } from '../_actions/auth';
 import { useActionState } from 'react';
 
 function Page() {
-    const [state, action, pending] = useActionState(loginUser, {})
+    const [state, action, pending] = useActionState(loginUser, { error: '' });
 
     const errorMessage = state?.error;
 

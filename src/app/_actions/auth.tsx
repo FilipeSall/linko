@@ -76,8 +76,8 @@ export async function createUserAction(state: unknown, formData: FormData): Prom
     await signIn('credentials', { email, password, redirectTo: '/dashboard' })
 }
 
-//Logar usuario
-export async function loginUser(state: unknown, formData: FormData): Promise<void | { error: string }> {
+// Logar usuário
+export async function loginUser(state: { error: string } | void, formData: FormData): Promise<void | { error: string }> {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
@@ -98,4 +98,3 @@ export async function loginUser(state: unknown, formData: FormData): Promise<voi
         return { error: "Ocorreu um erro inesperado, tente novamente mais tarde." };
     }
 }
-
