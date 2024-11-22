@@ -1,19 +1,12 @@
 // app/api/users/route.ts
-import prisma from '@/lib/db';
+import { createUser } from '@/services/auth';
 import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
     try {
         const { name, email, password } = await req.json();
 
-
-        const user = await prisma.user.create({
-            data: {
-                name,
-                email,
-                password
-            },
-        });
+        const user = await createUser(email,password, name);
 
         return NextResponse.json({ user });
     } catch (error) {

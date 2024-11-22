@@ -116,3 +116,8 @@
     border-radius: 8px;
     object-fit: contain;
 }
+
+.errorMessage > p { 
+    color: $accent;
+    animation: $errorTextAnimation;
+}

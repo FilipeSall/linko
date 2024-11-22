@@ -1,7 +1,7 @@
 'user server';
 import { StateError, StateSuccess } from "@/types/auth";
 import bcryptjs from 'bcryptjs';
-import { redirect } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 //Criar novo usuario com Credenciais
 export async function createUserAction(state: unknown, formData: FormData): Promise<StateError | StateSuccess> {
@@ -28,6 +28,10 @@ export async function createUserAction(state: unknown, formData: FormData): Prom
     if (password !== confirmPassword) {
         errors.generic = 'As senhas não coincidem';
     }
+    // Verifica se existem erros 
+    if (Object.keys(errors).length > 0) {
+        return errors;
+    }
 
     // Chama a API para verificar se o usuário já existe (passando o e-mail)
     const response = await fetch('/api/user/finduser', {
@@ -43,10 +47,6 @@ export async function createUserAction(state: unknown, formData: FormData): Prom
     // Verifica se a resposta da API indica que o usuário já existe
     if (data.user) {
         errors.generic = 'Email já cadastrado.';
-    }
-
-    // Verifica se existem erros 
-    if (Object.keys(errors).length > 0) {
         return errors;
     }
 
@@ -73,5 +73,29 @@ export async function createUserAction(state: unknown, formData: FormData): Prom
     }
 
     // Redireciona o usuário para a página de dashboard após a criação bem-sucedida
-    redirect('/dashboard');
+    await signIn('credentials', { email, password, redirectTo: '/dashboard' })
 }
+
+//Logar usuario
+export async function loginUser(state: unknown, formData: FormData): Promise<void | { error: string }> {
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+    try {
+        const result = await signIn('credentials', {
+            email,
+            password,
+            redirect: false
+        });
+
+        if (result?.error) {
+            // Retorna o erro para o cliente
+            return { error: 'Credenciais inválidas' };
+        }
+        window.location.href = '/dashboard';
+
+    } catch {
+        return { error: "Ocorreu um erro inesperado, tente novamente mais tarde." };
+    }
+}
+

@@ -8,7 +8,7 @@ function LadingPageHeader() {
         <header className={styles.header}>
             <Logo />
             <div className={styles.btnWrapper}>
-                <Navlink href="/signin" size="medium" type="ghost" icon={<CiLogin />}>
+                <Navlink href="/api/auth/signin" size="medium" type="ghost" icon={<CiLogin />}>
                     Entrar
                 </Navlink>
                 <Navlink href="/signup" size="medium" type="solid">

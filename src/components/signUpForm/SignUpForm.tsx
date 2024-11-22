@@ -1,9 +1,9 @@
-"use client";
+"use client"
 import { useActionState } from 'react';
 import Input from './input/Input';
 import styles from './SignUpForm.module.scss';
 import Link from 'next/link';
-import { createUserAction } from '@/actions/auth';
+import { createUserAction } from '@/app/_actions/auth';
 import { StateError, StateSuccess } from '@/types/auth';
 
 function SignUpForm() {
@@ -42,7 +42,7 @@ function SignUpForm() {
             {isErrorState(state) && <p className={styles.errorMessage}>{state.generic}</p>}
             <div className={styles.btnWrapper}>
                 <button className={`${styles.btn} ${styles.submitBtn}`} type='submit' disabled={pending}>{pending ? 'Enviando...' : 'Enviar'}</button>
-                {!pending && <Link className={`${styles.btn} ${styles.backBtn}`} href='/signin'>Já é cadastrado?</Link>}
+                {!pending && <Link className={`${styles.btn} ${styles.backBtn}`} href='/api/auth/signin'>Já é cadastrado?</Link>}
             </div>
         </form>
     )

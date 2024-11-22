@@ -1,4 +1,4 @@
-import prisma from '@/lib/db';
+import { findUserByEmail } from '@/services/auth';
 import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
@@ -12,11 +12,7 @@ export async function POST(req: Request) {
         }
 
         // Buscar o usuário no banco de dados pelo email
-        const user = await prisma.user.findFirst({
-            where: {
-                email: email,
-            },
-        });
+        const user = await findUserByEmail(email);
 
         // Retornar o usuário encontrado
         return NextResponse.json({ user }, { status: 200 });
