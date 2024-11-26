@@ -3,9 +3,10 @@ import { signIn } from "next-auth/react";
 export async function POST(req: Request) {
     try {
         const { email, password } = await req.json();
+        const formmatedEmail = email.toLocaleLowerCase()
 
         const result = await signIn("credentials", {
-            email,
+            formmatedEmail,
             password,
             redirect: false,
         });

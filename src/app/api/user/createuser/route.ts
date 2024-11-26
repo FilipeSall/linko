@@ -6,7 +6,8 @@ export async function POST(req: Request) {
     try {
         const { name, email, password } = await req.json();
 
-        const user = await createUser(email,password, name);
+
+        const user = await createUser(email.toLocaleLowerCase(), password, name);
 
         return NextResponse.json({ user });
     } catch (error) {

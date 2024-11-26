@@ -18,7 +18,6 @@
     display: flex;
     align-items: center;
     width: 75%;
-    margin-top: auto;
 }
 
 .btn {
@@ -51,3 +50,19 @@
     animation: $errorTextAnimation;
 }
 
+.providerContainer{
+    width: 75%;
+    margin-top: auto;
+    min-height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: 1px solid $gray;
+
+}
+
+.providerContainer > p{
+    color: $background;
+    font-size: 1.1rem;
+}

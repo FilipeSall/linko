@@ -5,10 +5,12 @@ import Image from 'next/image';
 import modalImg from '../../../public/assets/form/signin.webp';
 import logoImg from '../../../public/assets/logo2.png';
 import { loginUser } from '../_actions/auth';
-import { useActionState } from 'react';
+import { useActionState, useState } from 'react';
+import LoginProviderBtn from '@/components/ui/loginProviderBtn/LoginProviderBtn';
 
 function Page() {
     const [state, action, pending] = useActionState(loginUser, { error: '' });
+    const [providerLoading, setProviderLoading] = useState(false);
 
     const errorMessage = state?.error;
 
@@ -24,20 +26,26 @@ function Page() {
                     <h1 className={styles.formTitle}>Entrar com Email</h1>
                     <div className={styles.inputWrapper}>
                         <label htmlFor='email'>Digite seu email cadastrado</label>
-                        <input name='email' required />
+                        <input name='email' required disabled={pending} />
                     </div>
                     <div className={styles.inputWrapper}>
                         <label htmlFor='password'>Digite sua senha</label>
-                        <input name='password' type='password' required />
+                        <input name='password' type='password' required disabled={pending} />
                     </div>
                     {errorMessage && (
-                    <div className={styles.errorMessage}>
-                        <p>{errorMessage}</p>
-                    </div>
-                )}
+                        <div className={styles.errorMessage}>
+                            <p>{errorMessage}</p>
+                        </div>
+                    )}
                     <div className={styles.btnWrapper}>
-                        <button className={`${styles.loginBtn} ${styles.btn}`} type='submit' disabled={pending}>{pending ? 'Aguarde' :'Entrar'}</button>
-                        <Link className={`${styles.signUpBtn} ${styles.btn}`} href='/signup'>Não é cadastrado?</Link>
+                        <button className={`${styles.loginBtn} ${styles.btn}`} type='submit' disabled={pending || providerLoading}>{pending ? 'Aguarde' : 'Entrar'}</button>
+                        <Link className={`${styles.signUpBtn} ${styles.btn} ${pending && styles.hiddenElement}`} href='/signup'>Não é cadastrado?</Link>
+                    </div>
+                    <div className={styles.providersWrapper}>
+                        <p>ou</p>
+                        <div className={styles.providersBtnWrapper}>
+                            <LoginProviderBtn provider='github' loading={providerLoading} setLoading={setProviderLoading} />
+                        </div>
                     </div>
                 </form>
                 <div className={styles.imgWrapper}>

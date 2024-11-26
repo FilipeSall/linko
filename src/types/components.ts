@@ -1,5 +1,5 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import { InputHTMLAttributes, ReactNode } from "react";
+import { Dispatch, InputHTMLAttributes, ReactNode } from "react";
 import { ObjectKeysStringErrors } from "./auth";
 
 export interface NavLinkProps {
@@ -24,5 +24,12 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export interface InputSignUpProps extends InputProps {
-    inputError?: ObjectKeysStringErrors 
+    inputError?: ObjectKeysStringErrors
+}
+
+export interface BtnLoginProviderProps {
+    provider: 'github' | 'google'
+    loading: boolean
+    setLoading:Dispatch<boolean>
+    pending?:boolean
 }

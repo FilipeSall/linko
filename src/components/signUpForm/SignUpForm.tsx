@@ -1,20 +1,22 @@
 "use client"
-import { useActionState } from 'react';
+import { useActionState, useState } from 'react';
 import Input from './input/Input';
 import styles from './SignUpForm.module.scss';
 import Link from 'next/link';
 import { createUserAction } from '@/app/_actions/auth';
 import { StateError, StateSuccess } from '@/types/auth';
+import LoginProviderBtn from '../ui/loginProviderBtn/LoginProviderBtn';
 
 function SignUpForm() {
 
     const [state, action, pending] = useActionState(createUserAction, {});
+    const [providerLoading, setProviderLoading] = useState(false);
 
     //Função que verifica se o retorno da action foi um erro
     function isErrorState(state: StateError | StateSuccess): state is { [key: string]: string } {
         return typeof state === 'object' && !('success' in state);
     }
-    
+
     const inputs: {
         label: string;
         name: string;
@@ -41,8 +43,18 @@ function SignUpForm() {
             ))}
             {isErrorState(state) && <p className={styles.errorMessage}>{state.generic}</p>}
             <div className={styles.btnWrapper}>
-                <button className={`${styles.btn} ${styles.submitBtn}`} type='submit' disabled={pending}>{pending ? 'Enviando...' : 'Enviar'}</button>
-                {!pending && <Link className={`${styles.btn} ${styles.backBtn}`} href='/api/auth/signin'>Já é cadastrado?</Link>}
+                {!providerLoading && <button className={`${styles.btn} ${styles.submitBtn}`} type='submit' disabled={pending || providerLoading}>{pending ? 'Enviando...' : 'Enviar'}</button>}
+                {(!pending && !providerLoading) && (
+                    <Link className={`${styles.btn} ${styles.backBtn}`} href='/api/auth/signin'>
+                        Já é cadastrado?
+                    </Link>
+                )}
+            </div>
+            <div className={styles.providerContainer}>
+                <p>ou</p>
+                <div className={styles.providersBtnWrapper}>
+                    <LoginProviderBtn provider='github' loading={providerLoading} setLoading={setProviderLoading} />
+                </div>
             </div>
         </form>
     )

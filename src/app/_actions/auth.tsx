@@ -1,4 +1,5 @@
 'user server';
+import { signOut } from "@/auth";
 import { StateError, StateSuccess } from "@/types/auth";
 import bcryptjs from 'bcryptjs';
 import { signIn } from "next-auth/react";
@@ -97,4 +98,14 @@ export async function loginUser(state: { error: string } | void, formData: FormD
     } catch {
         return { error: "Ocorreu um erro inesperado, tente novamente mais tarde." };
     }
+}
+
+// Deslogar usuário
+export async function logoutUser() {
+    await signOut({ redirectTo: '/' });
+}
+
+// Logar com GitHub
+export async function loginWithGitHub() {
+    await signIn('github', { redirectTo: '/dashboard' });
 }

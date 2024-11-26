@@ -71,7 +71,6 @@
 
 .btnWrapper{
     width: 75%;
-    margin-top: auto;
     height: 10vh;
     display: flex;
     justify-content: center;
@@ -102,6 +101,27 @@
     text-decoration: none;
 }
 
+.providersWrapper{
+    border-top: 1px solid $gray;
+    width: 75%;
+    min-height: 20vh;
+    margin-top: auto;
+    color: $background;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 14px;
+    align-items: center;
+}
+
+.providersWrapper > p {
+    color: $background;
+}
+
+.providersBtnWrapper{
+    display: flex;
+}
+
 .imgWrapper{
     width: 35%;
     display: flex;
@@ -120,4 +140,9 @@
 .errorMessage > p { 
     color: $accent;
     animation: $errorTextAnimation;
+}
+
+.hiddenElement{
+    visibility: hidden;
+    pointer-events:none;
 }

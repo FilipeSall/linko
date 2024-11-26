@@ -29,10 +29,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br" className={`app-container ${montserrat.variable} ${caveat.variable} ${poppins.variable}`}>
-      <body>
-        {children}
-      </body>
-    </html>
+      <html lang="pt-br" className={`app-container ${montserrat.variable} ${caveat.variable} ${poppins.variable}`}>
+        <body>
+          {children}
+        </body>
+      </html>
   );
 }
