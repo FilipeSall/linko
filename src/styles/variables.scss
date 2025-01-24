@@ -1,0 +1,38 @@
+//Collors
+$background: #121113;
+$forwdground: #EEEEF0;
+$accent: #E54666;
+$accent-light: #EC5B73;
+$accent-dark: #3B1420;
+$gray: #6F6D78;
+$active: #1DC696;
+$active-dark: #102E24;
+$hover: #ED8A93;
+$classic: #b3445acb;
+$soft: #E2BBC8;
+
+// _variables.scss
+$errorTextAnimation: shake 0.5s ease-in-out;
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(5px);
+    }
+}

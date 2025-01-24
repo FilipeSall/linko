@@ -1,0 +1,95 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "dataproxy"
+  // Necessário para compatibilidade com Edge
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  password      String?
+  emailVerified DateTime?
+  image         String?
+  role          Roles     @default(standard)
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  Accounts  Account[]
+
+  @@map("user")
+}
+
+enum Roles {
+  adm
+  standard
+}
+
+enum Profissions {
+  desenvolvedor
+  jornalista
+  design
+  marketing
+  cozinheiro
+  musico
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model Link {
+  id          String        @id @default(cuid())
+  title       String
+  icon        String
+  description String
+  featured    Boolean
+  profissions Profissions[]
+  LinkTags    LinkTags[]
+}
+
+model Tags {
+  id          String     @id @default(cuid())
+  name        String
+  icon        String
+  description String
+  LinkTags    LinkTags[]
+}
+
+model LinkTags {
+  linksId String
+  links   Link   @relation(fields: [linksId], references: [id])
+
+  tagsId String
+  tags   Tags   @relation(fields: [tagsId], references: [id])
+
+  @@id([linksId, tagsId])
+}

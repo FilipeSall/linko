@@ -1,0 +1,34 @@
+@use '../../../styles/variables.scss' as *;
+@use '../../../styles/mixin.scss' as *;
+
+.errorText {
+    color: $accent;
+    animation: shake .3s ease-in-out forwards;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-4px);
+    }
+
+    50% {
+        transform: translateX(4px);
+    }
+
+    75% {
+        transform: translateX(-4px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+    color: red;
+}

@@ -1,0 +1,74 @@
+@use '../../../styles/variables.scss' as *;
+@use '../../../styles/mixin.scss' as *;
+
+.cardWrapper{
+    width: 40%;
+    background-color: $forwdground;
+    background-image: none;
+    min-height:fit-content;
+    color: $background;
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    will-change: opacity, transform;
+    gap: 8px;
+    @include mediaTablet{
+        width: 45%;
+    }
+    @include mediaCell{
+        width: 95%;
+    }
+}
+
+.boxShadow1{
+    box-shadow: 0 0 10px #f6f5c0;
+    text-shadow:1px 1px 1px #FFFECB;
+}
+
+.boxShadow2{
+    box-shadow:  0 0 10px $accent;
+    text-shadow:1px 1px 1px $accent;
+}
+
+.boxShadow3{
+    box-shadow: 0 0 10px #018E42;
+    text-shadow:1px 1px 1px #018E42;
+}
+
+.boxShadow4{
+    box-shadow: 0 0 10px #0094C6;
+    text-shadow:1px 1px 1px #0094C6;
+}
+
+.cardImg{
+    object-fit: fill;
+    width:auto;
+    height: auto;
+    border-radius: inherit;
+    box-shadow: 0 1px 3px $background;
+}
+
+.cardTitle{
+    background-color: inherit;
+    color: $background;
+    font-size: 2rem;
+    font-family: var(--font-poppins);
+    @include mediaTablet{
+        font-size: 1.7rem;
+    }
+    @include mediaCell{
+        font-size: 1.5rem;
+    }
+}
+
+.cardDescription{
+    background-color: inherit;
+    color: $background;
+    background-image: none;
+    font-size: 1.2rem;
+    text-shadow: none;
+    @include mediaCell{
+        font-size: 1rem;
+    }
+}

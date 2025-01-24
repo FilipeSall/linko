@@ -1,0 +1,27 @@
+@use '../../../styles/variables.scss' as *;
+@use '../../../styles/mixin.scss' as *;
+
+
+.btn{
+    width: 75%;
+    cursor: pointer;
+    border: none;
+    color: $background;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    gap: 8px;
+    background-color: #fff;
+    padding: 6px;
+    border-radius: 8px;
+    box-shadow: 0 1px 1px $gray;
+
+    @include mediaTablet{
+        width: 100%;
+    }
+
+    @include mediaCell{
+        width: 100%;
+    }
+}

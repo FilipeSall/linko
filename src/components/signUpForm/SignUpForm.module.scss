@@ -1,0 +1,74 @@
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixin.scss' as *;
+
+.form {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin: 24px 0 0 0;
+    background-color: $forwdground;
+    color: $background;
+    padding: 24px;
+    border-radius: 4px;
+    align-items: center;
+}
+
+.btnWrapper {
+    display: flex;
+    align-items: center;
+    width: 75%;
+}
+
+.btn {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    font-family: var(--font-poppins);
+    width: 50%;
+    border: none;
+    border-radius: 4px;
+}
+
+.submitBtn {
+    color: $forwdground;
+    background-color: $accent;
+    box-shadow: 0 0 5px $accent-light;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.backBtn {
+    color: $background;
+    text-decoration: none;
+}
+
+.errorMessage{
+    color:$accent;
+    animation: $errorTextAnimation;
+}
+
+.providerContainer{
+    width: 75%;
+    margin-top: auto;
+    min-height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: 1px solid $gray;
+}
+
+.providersBtnWrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.providerContainer > p{
+    color: $background;
+    font-size: 1.1rem;
+    font-weight: bold;
+}

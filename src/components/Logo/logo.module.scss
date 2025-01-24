@@ -1,0 +1,23 @@
+@import '../../styles/variables.scss';
+
+.wrapper{
+    width: 20%;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    user-select: none;
+}
+
+.logo{
+    object-fit: contain;
+    width: 50px;
+    height: 50px;
+}
+
+.wrapper > p { 
+    font-family: "Caveat", cursive;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 20px $accent;
+}
