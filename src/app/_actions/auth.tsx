@@ -1,4 +1,4 @@
-'user server';
+'user serve';
 import { signOut } from "@/auth";
 import { StateError, StateSuccess } from "@/types/auth";
 import bcryptjs from 'bcryptjs';
